@@ -1,0 +1,39 @@
+# Base class
+class Device:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def info(self):
+        return f"Device: {self.brand} {self.model}"
+
+
+# Derived class (Inheritance from Device)
+class Smartphone(Device):
+    def __init__(self, brand, model, storage, battery):
+        # Call the base class constructor
+        super().__init__(brand, model)
+        self.storage = storage
+        self.battery = battery
+
+    def charge(self):
+        return f"{self.brand} {self.model} is charging... 🔋"
+
+    def take_photo(self):
+        return f"{self.brand} {self.model} takes a high-resolution photo! 📸"
+
+    # Encapsulation: controlled battery check
+    def check_battery(self):
+        return f"Battery: {self.battery}%"
+
+
+# Create objects
+phone1 = Smartphone("Samsung", "S24", "256GB", 85)
+phone2 = Smartphone("Apple", "iPhone 15", "128GB", 50)
+
+# Test methods
+print(phone1.info())
+print(phone1.take_photo())
+print(phone1.check_battery())
+print(phone2.info())
+print(phone2.charge())
